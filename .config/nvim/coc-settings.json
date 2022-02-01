@@ -17,5 +17,6 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "tsserver.enableJavascript": true
+  "tsserver.enableJavascript": true,
+  "coc.preferences.jumpCommand": "tabe"
 }
