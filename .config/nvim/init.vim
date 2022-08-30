@@ -9,7 +9,7 @@ call plug#begin()
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-java', 'coc-python', 'coc-angular', 'coc-vetur', 'coc-go']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-java', 'coc-python', 'coc-angular', 'coc-vetur', 'coc-go', 'coc-rust-analyzer']
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'morhetz/gruvbox'
@@ -29,6 +29,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'ayu-theme/ayu-vim'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -142,6 +143,9 @@ let g:EasyMotion_do_mapping = 0
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
+" let g:rust_recommended_style = 0
+let g:rustfmt_autosave = 1
+
 
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
@@ -152,6 +156,8 @@ nmap f <Plug>(easymotion-bd-w)
 autocmd User EasyMotionPromptBegin silent! CocDisable
 autocmd User EasyMotionPromptEnd silent! CocEnable
 
-
+" set guifont=FiraCode_Nerd_Font:h11
+" set guifont=FiraCode\ Nerd\ Font:h11
+let g:airline_powerline_fonts = 1
 
 source ~/.config/nvim/custom/cp.vim
