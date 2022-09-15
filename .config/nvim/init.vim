@@ -9,7 +9,7 @@ call plug#begin()
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-java', 'coc-python', 'coc-angular', 'coc-vetur', 'coc-go', 'coc-rust-analyzer']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-java', 'coc-pyright', 'coc-angular', 'coc-vetur', 'coc-go', 'coc-rust-analyzer']
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'morhetz/gruvbox'
@@ -161,3 +161,4 @@ autocmd User EasyMotionPromptEnd silent! CocEnable
 let g:airline_powerline_fonts = 1
 
 source ~/.config/nvim/custom/cp.vim
+source ~/.config/nvim/custom/coc.vim

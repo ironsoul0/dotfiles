@@ -31,9 +31,12 @@ function! TermWrapper(command) abort
 	exec 'startinsert'
 endfunction
 
-command! -nargs=0 CompileAndRun call TermWrapper(printf('g++ -std=c++14 %s && ./a.out', expand('%')))
-command! -nargs=1 CompileAndRunWithFile call TermWrapper(printf('g++ -std=c++14 %s && ./a.out < %s', expand('%'), <args>))
+command! -nargs=0 CompileAndRun call TermWrapper(printf('g++ -std=c++20 %s && ./a.out', expand('%')))
+command! -nargs=1 CompileAndRunWithFile call TermWrapper(printf('g++ -std=c++20 %s && ./a.out < %s', expand('%'), <args>))
+command! -nargs=0 CompileAndRunRust call TermWrapper(printf('rustc %s', expand('%')))
+
 autocmd FileType cpp nnoremap <leader>fw :w<CR> :CompileAndRun<CR>
+autocmd FileType rs nnoremap <leader>ww :w<CR> :CompileAndRunRust<CR>
 
 " For those of you that like to use the default ./a.out
 " This C++ toolkit gives you commands to compile and/or run in different types
@@ -43,11 +46,12 @@ autocmd FileType cpp nnoremap <leader>fw :w<CR> :CompileAndRun<CR>
 augroup CppToolkit
 	autocmd!
 	if g:os == 'Darwin'
-		autocmd FileType cpp nnoremap <leader>fn :!g++ -std=c++14 -o %:r % && open -a Terminal './a.out'<CR>
+		autocmd FileType cpp nnoremap <leader>fn :!g++ -std=c++20 -o %:r % && open -a Terminal './a.out'<CR>
 	endif
-	autocmd FileType cpp nnoremap <leader>fb :!g++ -std=c++14 % && ./a.out<CR>
+	autocmd FileType cpp nnoremap <leader>fb :!g++ -std=c++20 % && ./a.out<CR>
 	autocmd FileType cpp nnoremap <leader>fr :!./a.out<CR>
 	autocmd FileType cpp nnoremap <leader>fw :w<CR> :CompileAndRun<CR>
+	autocmd FileType rs nnoremap <leader>fw :w<CR> :CompileAndRunRust<CR>
 augroup END
 
 " For those of you that like to use -o and a specific outfile executable
@@ -57,9 +61,9 @@ augroup END
 augroup CppToolkit
 	autocmd!
 	if g:os == 'Darwin'
-		autocmd FileType cpp nnoremap <leader>fn :!g++ -std=c++14 -o %:r % && open -a Terminal './%:r'<CR>
+		autocmd FileType cpp nnoremap <leader>fn :!g++ -std=c++20 -o %:r % && open -a Terminal './%:r'<CR>
 	endif
-	autocmd FileType cpp nnoremap <leader>fb :!g++ -std=c++14 -o %:r % && ./%:r<CR>
+	autocmd FileType cpp nnoremap <leader>fb :!g++ -std=c++20 -o %:r % && ./%:r<CR>
 	autocmd FileType cpp nnoremap <leader>fr :!./%:r.out<CR>
 augroup END
 
