@@ -33,6 +33,8 @@ Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
+source ~/.config/nvim/custom/coc.vim
+
 :let mapleader = " "
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap nw :noa w<CR>
@@ -161,4 +163,3 @@ autocmd User EasyMotionPromptEnd silent! CocEnable
 let g:airline_powerline_fonts = 1
 
 source ~/.config/nvim/custom/cp.vim
-source ~/.config/nvim/custom/coc.vim
